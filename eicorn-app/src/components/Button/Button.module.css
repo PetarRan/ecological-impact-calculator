@@ -1,0 +1,31 @@
+/* button {
+    padding-inline: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #387d4c;
+    color: white;
+    border: none;
+} */
+button {
+
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    padding: 0 56px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 7px;
+    background-color: #387d4c;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    box-shadow: 0 4px 14px 0 rgb(57 125 76 / 39%);
+    transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
+    
+}
+
+button:hover {
+    background: rgba(57, 125, 76,0.9);
+    box-shadow: 0 6px 20px rgb(57 125 76 / 23%);
+}
