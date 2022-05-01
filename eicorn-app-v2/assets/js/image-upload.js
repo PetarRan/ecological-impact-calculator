@@ -12,3 +12,4 @@ function clearImage() {
     document.getElementById("formFile").classList.remove("hidden")
 
 }
+

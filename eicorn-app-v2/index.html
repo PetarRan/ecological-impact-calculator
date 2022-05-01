@@ -20,7 +20,10 @@
 
 <body class="">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="#"><img src="assets/img/white logo.png" width="160px"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="#"><img src="assets/img/white logo.png"
+                    width="160px"></a><button data-bs-toggle="collapse" class="navbar-toggler"
+                data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
@@ -31,69 +34,118 @@
         </div>
     </nav>
     <main class="page landing-page">
-        <h1 class="mainTitle"><span id="bigger"><span class="eic">eic</span>orn,</span><br>the first <span class="white">e</span>cological <span class="white">i</span>mpact <span class="white">c</span>alculator app</h1>
+        <h1 class="mainTitle"><span id="bigger"><span class="eic">eic</span>orn,</span><br>the first <span
+                class="white">e</span>cological <span class="white">i</span>mpact <span class="white">c</span>alculator
+            app</h1>
         <section class="clean-block clean-hero height-custom-full">
-            <div class="text">
-                <img src="assets/img/img_placeholder.png" width="400px" height="400px">
-                <p class="mt-2">Please upload the bardcode of a product that you want to scan</p>
-                    <button class="btn btn-outline-light btn-lg" type="button">Upload <i class="fas fa-upload"></i></button>
+
+            <div class="text hidden" id="loading">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div>
+                    <p id="dataFailed" class="hidden text-white"></p>
+
+                    <button onclick="searchByBarCode()" class="btn btn-secondary retryCode hidden">Scan Again <i
+                            class="fas fa-refresh"></i></button>
+                    <button onclick="searchByBarCode()" class="btn btn-secondary goSearchCode hidden">Search Code <i
+                            class="fas fa-search"></i></button>
+                </div>
+
             </div>
-        </section>
+
+            <div class="text" id="barcodeSearch">
+                <img id="frame" src="assets/img/img_placeholder.png" width="400px" height="400px">
+                <button onclick="clearImage()" class="btn btn-outline text-white btn-fluid hidden"><i
+                        class="fas fa-remove"></i></button>
+                <label for="Image" class="form-label">Please upload the bardcode of a product that you want to
+                    scan</label>
+                <input class="form-control" type="file" id="formFile" onchange="preview()">
+                <div class="hidden submit">
+                    <button onclick="searchByBarCode()" class="btn btn-secondary submitCode">Upload <i
+                            class="fas fa-barcode"></i></button>
+                </div>
+            </div>
+
+            <div class="text hidden" id="numberSearch">
+                <p class="h4">Enter the number from your barcode.</p>
+                <input class="form-control mb-5" type="text" id="barcodeQuery">
+                <div class="submitSearch">
+                    <button onclick="searchByCode()" class="btn btn-secondary submitBtn">Search by Code Number <i
+                            class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="result hidden mb-3" id="infoCard">
+                <img class="result-img"
+                    src="https://media.istockphoto.com/vectors/image-preview-icon-picture-placeholder-for-website-or-uiux-design-vector-id1222357475?k=20&m=1222357475&s=612x612&w=0&h=jPhUdbj_7nWHUp0dsKRf4DMGaHiC16kg_FSjRRGoZEI=">
+                <div class="textDiv">
+                    <div class="row">
+                        <label class="name"><b>Name: </b><span class="value"></span></label>
         
+                    </div>
+                    <div class="row">
+                        <label class="location"><b>Location: </b> <span class="value"></span></label>
+                    </div>
+                    <div class="row">
+                        <label class="co2"><b>Carbon dioxide: </b><span class="value"></span></label>
+                    </div>
+                    <div class="row">
+                        <label class="kmTravelled"><b>Kilometers travelled: </b><span class="value"></span></label>
+                    </div>
+                    <div class="row">
+                        <label class="ecoScore"><b>Eco Score: </b>
+                            <div class="eco-score"><span class="score"></span></div>
+                        </label>
+                    </div>
+        
+                </div>
+                <img src="https://miro.medium.com/max/1400/1*JXhjL6INLbdHBHvSxUMqsg.png" width="300px">
+            </div>
+
+        </section>
+
     </main>
     <section id="about-us">
         <div class="sec">
             <div class="left">
                 <h1>Learn about the products you use</h1>
-            <p>This website tells you what you need to know about the product you use regarding the ecological impact. Upload a label photo and get a score that represent the degree of ecological friendliness. We take into accounts Carbon footprint, distance travelled, materials used, recycling data, etc.
-                In this way you can be awere of the ecological impact of the products you use in everyday life and start improving your consumer decisions.
-            </p>
-            <br>
-            <p>Download the app for a easier use. Scan the QR Code or download it on Google Play</p>
-            <a href="#">
-                <img id="playstore" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png">
-            </a>
-            <img src="https://www.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/core_market_full/generator/dist/generator/assets/images/websiteQRCode_noFrame.png" class="qr-code">
+                <p>This website tells you what you need to know about the product you use regarding the ecological
+                    impact. Upload a label photo and get a score that represent the degree of ecological friendliness.
+                    We take into accounts Carbon footprint, distance travelled, materials used, recycling data, etc.
+                    In this way you can be awere of the ecological impact of the products you use in everyday life and
+                    start improving your consumer decisions.
+                </p>
+                <br>
+                <p>Download the app for a easier use. Scan the QR Code or download it on Google Play</p>
+                <a href="#">
+                    <img id="playstore"
+                        src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png">
+                </a>
+                <img src="https://www.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/core_market_full/generator/dist/generator/assets/images/websiteQRCode_noFrame.png"
+                    class="qr-code">
             </div>
             <div class="right">
-                 <img class="illustrations" src="Save the Earth.svg" />
+                <img class="illustrations" src="Save the Earth.svg" />
             </div>
         </div>
     </section>
     <section>
         <div class="sec">
             <div class="right">
-                 <img class="illustrations" src="assets/img/Air pollution.svg" />
+                <img class="illustrations" src="assets/img/Air pollution.svg" />
             </div>
             <div class="left">
                 <h1>What is ecological impact</h1>
-            <p>Ecological Impact is the effects left on organisms and their environment due to actions made by humans and natural occurrences. These changes can be beneficial or adverse to the ecosystem.
-            An example of ecological impact can be seen in the case of invasive species. While these organisms are brought into the ecosystem by humans to help solve a problem or are introduced by accident; they can pose a threat to the environment due to there being no predator to keep the invasive species under control. This can have a severe impact on the ecosystem by allowing the invader to continue to grow in number and force out native species from the environment.
-            </p>
-        </div>
-    </section>
-    <section class="result">
-        <img class="result-img" src="https://media.istockphoto.com/vectors/image-preview-icon-picture-placeholder-for-website-or-uiux-design-vector-id1222357475?k=20&m=1222357475&s=612x612&w=0&h=jPhUdbj_7nWHUp0dsKRf4DMGaHiC16kg_FSjRRGoZEI=">
-        <div class="textDiv">
-            <div class="row">
-                <label class="name"><b>Name: </b><span class="value">Coca Cola</span></label>
-                
+                <p>Ecological Impact is the effects left on organisms and their environment due to actions made by
+                    humans and natural occurrences. These changes can be beneficial or adverse to the ecosystem.
+                    An example of ecological impact can be seen in the case of invasive species. While these organisms
+                    are brought into the ecosystem by humans to help solve a problem or are introduced by accident; they
+                    can pose a threat to the environment due to there being no predator to keep the invasive species
+                    under control. This can have a severe impact on the ecosystem by allowing the invader to continue to
+                    grow in number and force out native species from the environment.
+                </p>
             </div>
-            <div class="row">
-                <label class="name"><b>Location: </b> <span class="value">China</span></label>
-            </div>
-            <div class="row">
-                <label class="name"><b>Carbon dioxide: </b><span class="value">142g</span></label>
-            </div>
-            <div class="row">
-                <label class="name"><b>Kilometers travelled: </b><span class="value">14265 Km</span></label>
-            </div>
-            <div class="row">
-                <label class="name"><b>Kilometers travelled: </b><div class="eco-score"><span class="score">89</span></div></label>
-            </div>
-            
-        </div>
-        <img src="https://miro.medium.com/max/1400/1*JXhjL6INLbdHBHvSxUMqsg.png" width="300px">
     </section>
     <main class="page faq-page" id="faq">
         <section class="clean-block clean-faq dark">
@@ -152,6 +204,8 @@
             <p>© 2022 Eicorn Copyright</p>
         </div>
     </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>

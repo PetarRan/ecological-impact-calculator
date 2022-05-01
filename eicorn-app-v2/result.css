@@ -2,6 +2,7 @@
 	border-radius: 20px;
 	margin-bottom: 30px;
 }
+
 .result {
 	margin-bottom: 200px !important;
 	justify-content: center;
@@ -12,15 +13,21 @@
 	margin: auto;
 	max-width: fit-content;
 	text-align: center;
+	z-index: 1000;
+	background-color: white;
+	margin-bottom: 20px;
 }
 
 .result-img {
-	width: 300px; 	
-	margin:  auto;
+	height: 200px;
+	width: auto;
+	margin: auto;
 }
+
 .row {
 	width: 300px;
 }
+
 .textDiv {
 	margin-top: 30px;
 	text-align: left;
@@ -32,6 +39,7 @@
 ul {
 	margin-top: 25px;
 }
+
 .eco-score {
 	margin-top: 20px !important;
 	background-image: url("assets/img/green-leaf.svg");
@@ -42,19 +50,22 @@ ul {
 	background-size: cover;
 	justify-content: center;
 	text-align: center;
-	margin:  auto;
-	
+	margin: auto;
+
 }
 
 .score {
 	font-size: 30px;
-	padding-top:  10px;
+	padding-top: 10px;
 }
 
-@media only screen and (max-width: 500px)  {
+@media only screen and (max-width: 500px) {
 	.result {
-		max-width:  100%;
+		max-width: 100%;
 	}
+
 	.result-img {
 		max-width:  100%}
+		max-widht: 100%
+	}
 }
