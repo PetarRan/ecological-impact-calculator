@@ -82,7 +82,7 @@
                 <div class="textDiv">
                     <div class="row">
                         <label class="name"><b>Name: </b><span class="value"></span></label>
-        
+
                     </div>
                     <div class="row">
                         <label class="location"><b>Location: </b> <span class="value"></span></label>
@@ -98,9 +98,12 @@
                             <div class="eco-score"><span class="score"></span></div>
                         </label>
                     </div>
-        
+
                 </div>
-                <img src="https://miro.medium.com/max/1400/1*JXhjL6INLbdHBHvSxUMqsg.png" width="300px">
+                <h3>Place of Origin:</h3>
+                <div id="mapFrame" class="mt-1">
+
+                </div>
             </div>
 
         </section>
@@ -162,23 +165,27 @@
                                 <li><strong>carbon footprint</strong></li>
                                 <li><strong>distance travelled</strong></li>
                             </ul>
-                        
+
                             <p>we then evaluate their impact and add the total impact</p>
                         </div>
                         <h4 class="question">how reliable is our data?</h4>
                         <div class="answer">
                             <p>unfortunatly there is no official database that store codebar values,</p>
-                            <p>we beleive that basic information on products should be accessable to the consumeres such as:</p>
-                                <ul>
-                                    <li><strong>origin of final product</strong></li>
-                                    <li><strong>total distance the product has travelled (distance of every ingrediant/componant)<br></strong></li>
-                                </ul>
-                            <p>Because these information are not public we use API's that contain a database filled by individuals </p>
+                            <p>we beleive that basic information on products should be accessable to the consumeres such
+                                as:</p>
+                            <ul>
+                                <li><strong>origin of final product</strong></li>
+                                <li><strong>total distance the product has travelled (distance of every
+                                        ingrediant/componant)<br></strong></li>
+                            </ul>
+                            <p>Because these information are not public we use API's that contain a database filled by
+                                individuals </p>
                             <p>and can sometimes contain false information </p>
                         </div>
                         <h4 class="question">Is Eicorn a profit based Company?</h4>
                         <div class="answer">
-                            <p>No. Eicorn is a student project who has for sole purpose to encourage and educate on the impact of different products</p>
+                            <p>No. Eicorn is a student project who has for sole purpose to encourage and educate on the
+                                impact of different products</p>
                         </div>
                         <h4 class="question">How to contact us?</h4>
                         <div class="answer">
@@ -196,7 +203,7 @@
         <div>
             <ul class="foota">
                 <a class="foota" href="#">Home</a>
-                <a class="foota"  href="#">About us</a>
+                <a class="foota" href="#">About us</a>
                 <a class="foota" href="#">FAQ</a>
             </ul>
         </div>
@@ -204,14 +211,21 @@
             <p>© 2022 Eicorn Copyright</p>
         </div>
     </footer>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&v=weekly"
+        defer></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/image-upload.js"></script>
     <script src="assets/js/fetch-product-data.js"></script>
+    <script src="assets/js/cardMap.js"></script>
+
 </body>
 
 </html>

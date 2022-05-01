@@ -4,6 +4,8 @@ function searchByCode() {
     var barcode = document.getElementById("barcodeQuery").value;
     let api1 = "https://www.foodrepo.org/api/v3/products?barcodes";
     let api2 = "https://restcountries.com/v2/alpha"
+    let key = "AIzaSyAcwnlNMP3dwZ8ANsdUMM24QQ98nKAnWYs"
+    let locationOrigin = ""
 
     fetch(`${api1}=${barcode}`, {
         headers: {
@@ -30,19 +32,49 @@ function searchByCode() {
                     .then(responseCountry => {
                         responseCountry.json().then(responseCountry => {
                             $(".location .value").text(responseCountry.name)
-
+                            locationOrigin = responseCountry.name;
                         })
                             .catch(error => console.error(error))
-                        $(".co2 .value").text(0) //TODO API Call
+                        $(".co2 .value").text(0) //TODO API Call @TPalleau
                         $(".kmTravelled .value").text(0) //TODO Calculate
-                        $(".ecoScore .value").text(0) //TODO FOrmula
+                        $(".ecoScore .value").text(0) //TODO FOrmula @TPalleau
                         $(".result-img").attr("src", resp.data[0].images[1].medium);
 
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            lat = position.coords.latitude;
+                            lon = position.coords.longitude;
+                            console.log("Latitude " + lat + " ,Longitude " + lon);
 
+
+                            $("#mapFrame").html(`<iframe allowfullscreen frameborder="0" 
+                            src="https://www.google.com/maps/embed/v1/place?key=${key}&amp;q=${locationOrigin}&amp;zoom=6" 
+                            loading="lazy" width="100%" height="300"></iframe>`);
+                        }
+                        
+
+                        )
                     })
-                    .catch(error => console.error(error));
             })
+                .catch(error => console.error(error));
         })
+}
+
+
+function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+    directionsService
+        .route({
+            origin: {
+                query: locationOrigin
+            },
+            destination: {
+                query: `${lat}%2C${lon}`,
+            },
+            travelMode: google.maps.TravelMode.DRIVING,
+        })
+        .then((response) => {
+            directionsRenderer.setDirections(response);
+        })
+        .catch((e) => window.alert("Directions request failed due to " + status));
 }
 
 function searchByBarCode() {
