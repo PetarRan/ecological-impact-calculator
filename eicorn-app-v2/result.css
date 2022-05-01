@@ -25,6 +25,13 @@
 	margin-top: 30px;
 	text-align: left;
 }
+
+.foota{
+	margin-inline: 25px;
+}
+ul {
+	margin-top: 25px;
+}
 .eco-score {
 	margin-top: 20px !important;
 	background-image: url("assets/img/green-leaf.svg");

@@ -2,6 +2,10 @@ body, html {
     overflow-x: hidden;
     scroll-behavior: smooth
 }
+footer, .foota {
+    justify-content: center;
+    text-align: center;
+}
 
 .sec {
     padding: 40px;
@@ -103,4 +107,12 @@ main {
 
 #about-us, #faq {
     padding-top: 30px;
+}
+#faq {
+    background-color: white;
+}
+
+
+footer, .footer-copyright {
+    background-color: black !important;
 }
