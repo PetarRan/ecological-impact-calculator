@@ -4,7 +4,7 @@
 }
 
 .result {
-	margin-bottom: 300px;
+	margin-bottom: 200px !important;
 	justify-content: center;
 	text-align: left;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -33,6 +33,13 @@
 	text-align: left;
 }
 
+.foota{
+	margin-inline: 25px;
+}
+ul {
+	margin-top: 25px;
+}
+
 .eco-score {
 	margin-top: 20px !important;
 	background-image: url("assets/img/green-leaf.svg");
@@ -58,6 +65,7 @@
 	}
 
 	.result-img {
+		max-width:  100%}
 		max-widht: 100%
 	}
 }

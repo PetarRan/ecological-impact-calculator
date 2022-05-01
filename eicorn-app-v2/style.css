@@ -1,5 +1,10 @@
 body, html {
     overflow-x: hidden;
+    scroll-behavior: smooth
+}
+footer, .foota {
+    justify-content: center;
+    text-align: center;
 }
 
 .sec {
@@ -20,8 +25,6 @@ body, html {
     min-width: 330px;
     margin: 40px;
 }
-.illustrations {
-}
 section {
     justify-content: center;
     padding-inline:  5%;
@@ -30,6 +33,8 @@ section {
 nav {
     width:  100vw;
     margin-left:  auto;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important  ;
 }
 main {
     background-color: #212529;
@@ -92,3 +97,22 @@ main {
     }
 }
 
+
+.text-info {
+	color: #4EC26A !important;
+}
+.block-content {
+    border-radius: 20px !important;
+}
+
+#about-us, #faq {
+    padding-top: 30px;
+}
+#faq {
+    background-color: white;
+}
+
+
+footer, .footer-copyright {
+    background-color: black !important;
+}
