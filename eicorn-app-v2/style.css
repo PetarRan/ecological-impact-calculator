@@ -1,0 +1,94 @@
+body, html {
+    overflow-x: hidden;
+}
+
+.sec {
+    padding: 40px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.eic {
+    color: #4EC26A;
+}
+.left, .right {
+    width:50%;
+    max-width: 600px;
+    min-width: 330px;
+    margin: 40px;
+}
+.illustrations {
+}
+section {
+    justify-content: center;
+    padding-inline:  5%;
+    
+}
+nav {
+    width:  100vw;
+    margin-left:  auto;
+}
+main {
+    background-color: #212529;
+}
+.mainTitle {
+    color: #4EC26A;
+    font-weight: 800;
+    background-color:#212529;
+    margin: 0px;
+    padding: 30px;
+    padding-top: 80px;
+    text-align: center;
+}
+.white {
+    color:  white;
+} 
+#playstore {
+    width: 200px;
+}
+.qr-code {
+    width: 150px;
+}
+#bigger {
+    font-size:  60px;
+    color:  white;
+}
+@media only screen and (max-width: 850px) {
+    section {
+        margin-top: 50px;
+        max-width: 95%;
+    }
+  .sec {
+    display: inline;
+    margin:  auto;
+  }
+  .left, .right {
+    margin:  auto;
+    text-align: center;
+    width:  100%;
+    max-width: 95%;
+  }
+  .illustrations {
+    max-width: 80%;
+    padding:  0px;
+    min-width: 100px;
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 400px) {
+    .left, .right {
+        width:  95%;
+        max-width: 95%;
+        min-width: 95%;
+        padding: 0;
+    }
+    section {
+        width:  95%;
+        margin: 0;
+        padding:  0;
+    }
+}
+
