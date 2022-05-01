@@ -11,5 +11,4 @@ function clearImage() {
     document.querySelector(".submit").classList.add("hidden")
     document.getElementById("formFile").classList.remove("hidden")
 
-
 }
