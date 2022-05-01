@@ -3,6 +3,7 @@ function searchByCode() {
     const key1 = "5f3543aee772bfa2c1ff769efdd5c991";
     var barcode = document.getElementById("barcodeQuery").value;
     let api1 = "https://www.foodrepo.org/api/v3/products?barcodes";
+    let api2 = "https://restcountries.com/v2/alpha"
 
     fetch(`${api1}=${barcode}`, {
         headers: {
@@ -25,15 +26,22 @@ function searchByCode() {
             }
             p.json().then(resp => {
                 $(".name .value").text(resp.data[0].display_name_translations.en)
-                $(".location .value").text(resp.data[0].country) //TODO translate
-                $(".co2 .value").text(0) //TODO API Call
-                $(".kmTravelled .value").text(0) //TODO Calculate
-                $(".ecoScore .value").text(0) //TODO FOrmula
-                $(".result-img").attr("src", resp.data[0].images[1].medium);
+                fetch(`${api2}/` + resp.data[0].country)
+                    .then(responseCountry => {
+                        responseCountry.json().then(responseCountry => {
+                            $(".location .value").text(responseCountry.name)
+
+                        })
+                            .catch(error => console.error(error))
+                        $(".co2 .value").text(0) //TODO API Call
+                        $(".kmTravelled .value").text(0) //TODO Calculate
+                        $(".ecoScore .value").text(0) //TODO FOrmula
+                        $(".result-img").attr("src", resp.data[0].images[1].medium);
 
 
+                    })
+                    .catch(error => console.error(error));
             })
-                .catch(error => console.error(error));
         })
 }
 
