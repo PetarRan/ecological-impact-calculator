@@ -29,3 +29,9 @@ The web app will then calculate it's carbon footprint impact and give it an eco 
 Unfortunatly, there is only so much we can get through a codebar. There is no official codebar database so there is no centralisation
 of these information. Furthermore some of these information's such as the meterial's in the product are not required to be given so
 are close to impossible to access.
+
+
+### future features
+* read barcode from imported photo
+* more available data for criterias
+* better eco calculation with more criterias
