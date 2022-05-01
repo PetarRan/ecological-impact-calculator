@@ -116,3 +116,7 @@ main {
 footer, .footer-copyright {
     background-color: black !important;
 }
+
+.clean-block::before, .mainTitle {
+	background-color: #111111 !important;
+}
