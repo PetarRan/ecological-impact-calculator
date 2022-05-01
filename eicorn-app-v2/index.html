@@ -14,7 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="result.css">
-
+    <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
+    <style>
+        /* In order to place the tracking correctly */
+        canvas.drawing, canvas.drawingBuffer {
+            
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -55,12 +61,17 @@
             </div>
 
             <div class="text" id="barcodeSearch">
-                <img id="frame" src="assets/img/img_placeholder.png" width="400px" height="400px">
+                <!-- <img id="frame" src="assets/img/img_placeholder.png" width="400px" height="400px"> -->
+                <div id="scanner-container"></div>
+                <input type="button" id="btn" class="button-63" value="Scan the product" />
+                <label id="barcode">Barcode: </label><br>
+                <label style="margin-bottom:30px;">or: </label><br>
                 <button onclick="clearImage()" class="btn btn-outline text-white btn-fluid hidden"><i
                         class="fas fa-remove"></i></button>
-                <label for="Image" class="form-label">Please upload the bardcode of a product that you want to
+                
+                <input class="form-control" type="file" id="formFile" onchange="preview()" >
+                <label style="margin-top:15px;" for="Image" class="form-label">Please upload the bardcode of a product that you want to
                     scan</label>
-                <input class="form-control" type="file" id="formFile" onchange="preview()">
                 <div class="hidden submit">
                     <button onclick="searchByBarCode()" class="btn btn-secondary submitCode">Upload <i
                             class="fas fa-barcode"></i></button>
@@ -200,6 +211,7 @@
         </div>
     </footer>
     
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
@@ -207,6 +219,106 @@
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/image-upload.js"></script>
     <script src="assets/js/fetch-product-data.js"></script>
+        <!-- Include the image-diff library -->
+        <script src="./assets/dist/quagga.min.js"></script>
+
+        <script>
+            var _scannerIsRunning = false;
+    
+            function startScanner() {
+                Quagga.init({
+                    inputStream: {
+                        name: "Live",
+                        type: "LiveStream",
+                        target: document.querySelector('#scanner-container'),
+                        constraints: {
+                            width: 480,
+                            height: 320,
+                            facingMode: "environment"
+                        },
+                    },
+                    decoder: {
+                        readers: [
+                            "code_128_reader",
+                            "ean_reader",
+                            "ean_8_reader",
+                            "code_39_reader",
+                            "code_39_vin_reader",
+                            "codabar_reader",
+                            "upc_reader",
+                            "upc_e_reader",
+                            "i2of5_reader"
+                        ],
+                        debug: {
+                            showCanvas: true,
+                            showPatches: true,
+                            showFoundPatches: true,
+                            showSkeleton: true,
+                            showLabels: true,
+                            showPatchLabels: true,
+                            showRemainingPatchLabels: true,
+                            boxFromPatches: {
+                                showTransformed: true,
+                                showTransformedBox: true,
+                                showBB: true
+                            }
+                        }
+                    },
+    
+                }, function (err) {
+                    if (err) {
+                        console.log(err);
+                        return
+                    }
+    
+                    console.log("Initialization finished. Ready to start");
+                    Quagga.start();
+    
+                    // Set flag to is running
+                    _scannerIsRunning = true;
+                });
+    
+                Quagga.onProcessed(function (result) {
+                    var drawingCtx = Quagga.canvas.ctx.overlay,
+                    drawingCanvas = Quagga.canvas.dom.overlay;
+    
+                    if (result) {
+                        if (result.boxes) {
+                            drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
+                            result.boxes.filter(function (box) {
+                                return box !== result.box;
+                            }).forEach(function (box) {
+                                Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
+                            });
+                        }
+    
+                        if (result.box) {
+                            Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
+                        }
+    
+                        if (result.codeResult && result.codeResult.code) {
+                            Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
+                        }
+                    }
+                });
+    
+    
+                Quagga.onDetected(function (result) {
+                    console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+                    document.getElementById("barcode").innerHTML = "Barcode: " + result.codeResult.code;
+                });
+            }
+    
+    
+            // Start/stop scanner
+            document.getElementById("btn").addEventListener("click", function () {
+                if (_scannerIsRunning) {
+                    // Quagga.stop();
+                } else {
+                    startScanner();
+                }
+            }, false);
+        </script>
 </body>
 
 </html>
