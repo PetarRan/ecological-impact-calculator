@@ -61,21 +61,26 @@ function searchByCode() {
                         let request = `${api1}?start=${latEnd},${longEnd}
                                 &end=${latlongStart}
                                 &transport_mode=driving
-                                &key=live_zFDt2xaxdYwkx5vbAGJKLdEXHbTW0TAbLcmUQzMGtkWyaF-unNbqrBzaOghvTjgiWgnihxYp8Ka7zxX6bFuJYQ==`
+                                &key=live_cV9kXlrPsU2HobP-lkutFWPngfeBhSdOQ4ewsYM-ViUHRM_GlM6U-RFOwa1OqI-5YIdDOVlUGVnTcmOodAG9eg==`
 
 
                         var latEnd = lat;
                         var longEnd = lon;
+
                         fetch(request)
                             .then(reqResp => {
+                                console.log(reqResp)
+                                console.log(reqResp.json())
                                 reqResp.json().then(reqResp => {
-                                        $(".co2 .value").text(reqResp.data.carbon_footprint.total)
-                                        $(".kmTravelled .value").text(reqResp.data.distance.kms)
+                                    $(".co2 .value").text(reqResp.data.carbon_footprint.total)
+                                    $(".kmTravelled .value").text(reqResp.data.distance.kms)
 
-                                    })
+                                })
                             })
 
-                        $(".ecoScore .value").text(0) //TODO FOrmula @TPalleau
+                        $(".co2 .value").text("1.82291")
+                        $(".kmTravelled .value").text("8912.19")
+                        $(".ecoScore .value").text("11.3") //TODO FOrmula @TPalleau
                         $(".result-img").attr("src", resp.data[0].images[1].medium);
 
                     })
