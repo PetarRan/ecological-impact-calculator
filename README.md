@@ -35,3 +35,7 @@ are close to impossible to access.
 * read barcode from imported photo
 * more available data for criterias
 * better eco calculation with more criterias
+
+
+### Our Postman collection:
+https://we.tl/t-FEr3c3BoWc
