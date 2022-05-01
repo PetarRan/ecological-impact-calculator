@@ -1,0 +1,52 @@
+.result-img {
+	border-radius: 20px;
+	margin-bottom: 30px;
+}
+.result {
+	margin-bottom: 300px;
+	justify-content: center;
+	text-align: left;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	padding: 30px;
+	border-radius: 20px;
+	margin: auto;
+	max-width: fit-content;
+	text-align: center;
+}
+.result-img {
+	width: 300px; 	
+	margin:  auto;
+}
+.row {
+	width: 300px;
+}
+.textDiv {
+	margin-top: 30px;
+	text-align: left;
+}
+.eco-score {
+	margin-top: 20px !important;
+	background-image: url("assets/img/green-leaf.svg");
+	width: 50px;
+	height: 48px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	justify-content: center;
+	text-align: center;
+	margin:  auto;
+	
+}
+
+.score {
+	font-size: 30px;
+	padding-top:  10px;
+}
+
+@media only screen and (max-width: 500px)  {
+	.result {
+		max-width:  100%;
+	}
+	.result-img {
+		max-widht:  100%}
+}
