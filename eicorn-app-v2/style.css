@@ -1,5 +1,6 @@
 body, html {
     overflow-x: hidden;
+    scroll-behavior: smooth
 }
 
 .sec {
@@ -30,6 +31,8 @@ section {
 nav {
     width:  100vw;
     margin-left:  auto;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important  ;
 }
 main {
     background-color: #212529;
@@ -92,3 +95,14 @@ main {
     }
 }
 
+
+.text-info {
+	color: #4EC26A !important;
+}
+.block-content {
+    border-radius: 20px !important;
+}
+
+#about-us, #faq {
+    padding-top: 30px;
+}

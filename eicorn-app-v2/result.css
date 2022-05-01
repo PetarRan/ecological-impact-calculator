@@ -3,7 +3,7 @@
 	margin-bottom: 30px;
 }
 .result {
-	margin-bottom: 300px;
+	margin-bottom: 200px !important;
 	justify-content: center;
 	text-align: left;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -13,6 +13,7 @@
 	max-width: fit-content;
 	text-align: center;
 }
+
 .result-img {
 	width: 300px; 	
 	margin:  auto;
