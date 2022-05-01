@@ -116,3 +116,55 @@ main {
 footer, .footer-copyright {
     background-color: black !important;
 }
+
+.clean-block::before, .mainTitle {
+	background-color: #111111 !important;
+}
+
+
+/* CSS */
+.button-63 {
+    margin:auto;
+    margin-bottom:40px;
+  align-items: center;
+  background-image: linear-gradient(144deg,#4EC26A, #4ec282 50%,#0eaa98);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-63:active,
+.button-63:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-63 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+.button-63:hover {
+    background-image: linear-gradient(144deg,#3b9851, #3d9b67 50%,#0b8a7c);
+}
+
+canvas {
+    margin-top: -50%;
+}

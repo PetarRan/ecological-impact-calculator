@@ -6,6 +6,10 @@ function searchByCode() {
     let api2 = "https://restcountries.com/v2/alpha"
     let key = "AIzaSyAcwnlNMP3dwZ8ANsdUMM24QQ98nKAnWYs"
     let locationOrigin = ""
+    var latlongStart;
+    let lat
+    let lon
+    let api3 = "https://klimaat.app/api/v1/calculate";
 
     fetch(`${api1}=${barcode}`, {
         headers: {
@@ -27,32 +31,53 @@ function searchByCode() {
                 //TODO Map!
             }
             p.json().then(resp => {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    lat = position.coords.latitude;
+                    lon = position.coords.longitude;
+                    console.log("Latitude " + lat + " ,Longitude " + lon);
+
+
+                    $("#mapFrame").html(`<iframe allowfullscreen frameborder="0" 
+                    src="https://www.google.com/maps/embed/v1/place?key=${key}&amp;q=${locationOrigin}&amp;zoom=6" 
+                    loading="lazy" width="100%" height="300"></iframe>`);
+                }
+
+
+                )
                 $(".name .value").text(resp.data[0].display_name_translations.en)
                 fetch(`${api2}/` + resp.data[0].country)
                     .then(responseCountry => {
                         responseCountry.json().then(responseCountry => {
                             $(".location .value").text(responseCountry.name)
                             locationOrigin = responseCountry.name;
+                            latlongStart = responseCountry.latlng
                         })
                             .catch(error => console.error(error))
-                        $(".co2 .value").text(0) //TODO API Call @TPalleau
-                        $(".kmTravelled .value").text(0) //TODO Calculate
+
+                        const key1 = "live_zFDt2xaxdYwkx5vbAGJKLdEXHbTW0TAbLcmUQzMGtkWyaF-unNbqrBzaOghvTjgiWgnihxYp8Ka7zxX6bFuJYQ==";
+
+
+
+                        let request = `${api1}?start=${latEnd},${longEnd}
+                                &end=${latlongStart}
+                                &transport_mode=driving
+                                &key=live_zFDt2xaxdYwkx5vbAGJKLdEXHbTW0TAbLcmUQzMGtkWyaF-unNbqrBzaOghvTjgiWgnihxYp8Ka7zxX6bFuJYQ==`
+
+
+                        var latEnd = lat;
+                        var longEnd = lon;
+                        fetch(request)
+                            .then(reqResp => {
+                                reqResp.json().then(reqResp => {
+                                        $(".co2 .value").text(reqResp.data.carbon_footprint.total)
+                                        $(".kmTravelled .value").text(reqResp.data.distance.kms)
+
+                                    })
+                            })
+
                         $(".ecoScore .value").text(0) //TODO FOrmula @TPalleau
                         $(".result-img").attr("src", resp.data[0].images[1].medium);
 
-                        navigator.geolocation.getCurrentPosition(function (position) {
-                            lat = position.coords.latitude;
-                            lon = position.coords.longitude;
-                            console.log("Latitude " + lat + " ,Longitude " + lon);
-
-
-                            $("#mapFrame").html(`<iframe allowfullscreen frameborder="0" 
-                            src="https://www.google.com/maps/embed/v1/place?key=${key}&amp;q=${locationOrigin}&amp;zoom=6" 
-                            loading="lazy" width="100%" height="300"></iframe>`);
-                        }
-                        
-
-                        )
                     })
             })
                 .catch(error => console.error(error));
