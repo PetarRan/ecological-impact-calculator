@@ -1,3 +1,7 @@
+### Update!!! Eicorn has won Organizer's Choice Prize on [**Major League Hacks**](https://devpost.com/software/eicorn) DragonHacks!
+
+![image](https://user-images.githubusercontent.com/70757499/212494106-3ca3a65b-dcef-4f9e-a070-a4775eeaa856.png)
+
 # DragonHacksLive
 
 | **Tech Choice** | **Supported** | **Styles** | **Base** |
