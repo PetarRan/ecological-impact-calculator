@@ -1,18 +1,7 @@
-### Update!!! Eicorn has won Organizer's Choice Prize on [**Major League Hacks**](https://devpost.com/software/eicorn) DragonHacks!
+# Eicorn - *Ecological Impact Calculator*
+A WebApp giving an eco rating and information on the ecological impact of a product from it's barcode
 
-![image](https://user-images.githubusercontent.com/70757499/212494106-3ca3a65b-dcef-4f9e-a070-a4775eeaa856.png)
-
-# DragonHacksLive
-
-| **Tech Choice** | **Supported** | **Styles** | **Base** |
-| --- | --- | --- | --- |
-| ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) | ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white) | ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) |
-
-![GitHub Contributors Image](https://contrib.rocks/image?repo=PetarRan/DragonHacksLive) 
-
-
-## Eicorn - *Ecological Impact Calculator*
-### A WebApp giving an eco rating and information on the ecological impact of a product from it's barcode
+![image](https://user-images.githubusercontent.com/70757499/216841662-62b506ff-581b-404b-9cce-e1e1d801464d.png)
 
 ### what is our idea?
 We want to make ecological habbits easy and informative to the customer. An easy webapp/application where scanning a barcode
@@ -41,5 +30,14 @@ are close to impossible to access.
 * better eco calculation with more criterias
 
 
-### Our Postman collection:
-https://we.tl/t-FEr3c3BoWc
+# DragonHacksLive
+
+| **Tech Choice** | **Supported** | **Styles** | **Base** |
+| --- | --- | --- | --- |
+| ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) | ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white) | ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) |
+
+![GitHub Contributors Image](https://contrib.rocks/image?repo=PetarRan/DragonHacksLive) 
+
+### Update!!! Eicorn has won Organizer's Choice Prize on [**Major League Hacks**](https://devpost.com/software/eicorn) DragonHacks!
+
+![image](https://user-images.githubusercontent.com/70757499/212494106-3ca3a65b-dcef-4f9e-a070-a4775eeaa856.png)
